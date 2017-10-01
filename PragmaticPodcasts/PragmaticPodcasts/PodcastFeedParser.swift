@@ -12,6 +12,7 @@ class PodcastFeedParser : NSObject, XMLParserDelegate {
     
     var currentFeed : PodcastFeed?
     var currentElementText : String?
+    var episodeParser : PodcastEpisodeParser?
     
     init(contentsOf url: URL) {
         
@@ -51,8 +52,8 @@ class PodcastFeedParser : NSObject, XMLParserDelegate {
                 currentFeed?.iTunesImageURL = URL(string: urlAttribute)
             }
         case "item":
-            parser.abortParsing()
-            print("aborted parsing. podcastFeed = \(currentFeed)")
+            episodeParser = PodcastEpisodeParser(feedParser: self, xmlParser: parser)
+            parser.delegate = episodeParser
         default:
             currentElementText = nil
         }
@@ -75,8 +76,20 @@ class PodcastFeedParser : NSObject, XMLParserDelegate {
             currentFeed?.description = currentElementText
         case "itunes:author":
             currentFeed?.iTunesAuthor = currentElementText
+        case "item":
+            if var episode = episodeParser?.currentEpisode {
+                if episode.iTunesImageURL == nil {
+                    episode.iTunesImageURL = currentFeed?.iTunesImageURL
+                }
+                currentFeed?.episodes.append(episode)
+            }
+            episodeParser = nil
         default:
             break
         }
+    }
+    
+    func parserDidEndDocument(_ parser: XMLParser) {
+        print("Parsing done, feed is \(currentFeed)")
     }
 }

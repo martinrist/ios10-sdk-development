@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PragmaticPodcasts/PodcastFeedParser.swift"
-            timestampString = "528567692.141893"
+            timestampString = "528568504.039409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "init(contentsOf:)"
             landmarkType = "7">
          </BreakpointContent>
