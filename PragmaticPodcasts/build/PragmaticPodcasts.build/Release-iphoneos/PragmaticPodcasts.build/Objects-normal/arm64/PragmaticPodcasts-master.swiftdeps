@@ -1,6 +1,0 @@
-version: "Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)"
-options: "b185188ce11550791fae6b1a1b5735ff"
-build_time: [1506263615, 446931000]
-inputs:
-  "/Users/mlr/Documents/devel/ios10-sdk-development/PragmaticPodcasts/PragmaticPodcasts/ViewController.swift": [9223372036, 854775807]
-  "/Users/mlr/Documents/devel/ios10-sdk-development/PragmaticPodcasts/PragmaticPodcasts/AppDelegate.swift": [9223372036, 854775807]
