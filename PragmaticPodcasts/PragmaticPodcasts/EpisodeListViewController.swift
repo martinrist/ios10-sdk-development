@@ -57,4 +57,13 @@ class EpisodeListViewController: UIViewController, UITableViewDataSource, UITabl
         let feed = feeds[section]
         return feed.title
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPlayer",
+            let playerVC = segue.destination as? PlayerViewController,
+            let indexPath = table.indexPathForSelectedRow {
+            let episode = feeds[indexPath.section].episodes[indexPath.row]
+            playerVC.episode = episode
+        }
+    }
 }

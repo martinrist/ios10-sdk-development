@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         if let url = URL(string: "http://nightvale.libsyn.com/rss"),
-            let episodeListVC = application.keyWindow?.rootViewController as? EpisodeListViewController {
+            let topNav = application.keyWindow?.rootViewController as? UINavigationController,
+            let episodeListVC = topNav.viewControllers.first as? EpisodeListViewController {
                 let parser = PodcastFeedParser(contentsOf: url)
             parser.onParserFinished = { [weak episodeListVC] in
                 if let feed = parser.currentFeed {
