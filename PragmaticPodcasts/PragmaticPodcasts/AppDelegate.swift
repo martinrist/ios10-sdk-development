@@ -16,9 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if let url = URL(string: "http://cocoaconf.libsyn.com/rss") {
-            let parser = PodcastFeedParser(contentsOf: url)
-        }
         return true
     }
 
@@ -38,6 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if let url = URL(string: "http://nightvale.libsyn.com/rss"),
+            let episodeListVC = application.keyWindow?.rootViewController as? EpisodeListViewController {
+                let parser = PodcastFeedParser(contentsOf: url)
+            parser.onParserFinished = { [weak episodeListVC] in
+                if let feed = parser.currentFeed {
+                    episodeListVC?.feeds = [feed]
+                }
+            }
+        }
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -13,6 +13,7 @@ class PodcastFeedParser : NSObject, XMLParserDelegate {
     var currentFeed : PodcastFeed?
     var currentElementText : String?
     var episodeParser : PodcastEpisodeParser?
+    var onParserFinished : (() -> Void)?
     
     init(contentsOf url: URL) {
         
@@ -90,6 +91,6 @@ class PodcastFeedParser : NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("Parsing done, feed is \(currentFeed)")
+        onParserFinished?()
     }
 }
