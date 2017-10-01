@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="PlayerViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PragmaticPodcasts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUH-ld-2oT">
+                                <rect key="frame" x="0.0" y="20" width="55" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="handlePlayPauseTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFn-wx-JLX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtT-jD-lNC">
+                                <rect key="frame" x="350" y="26.666666666666671" width="64" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJd-Wh-i6V">
+                                <rect key="frame" x="0.0" y="76" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" image="default-logo" translatesAutoresizingMaskIntoConstraints="NO" id="96o-P5-wot">
+                                <rect key="frame" x="0.0" y="97" width="414" height="639"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DJd-Wh-i6V" secondAttribute="trailing" id="3uq-gX-7Ne"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="96o-P5-wot" secondAttribute="bottom" id="GIt-0b-g72"/>
+                            <constraint firstItem="96o-P5-wot" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VDD-9J-aDd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="96o-P5-wot" secondAttribute="trailing" id="gQk-uP-urN"/>
+                            <constraint firstItem="QtT-jD-lNC" firstAttribute="centerY" secondItem="HUH-ld-2oT" secondAttribute="centerY" id="jMf-us-tkG"/>
+                            <constraint firstItem="HUH-ld-2oT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mD6-52-EhE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QtT-jD-lNC" secondAttribute="trailing" id="mte-88-SUq"/>
+                            <constraint firstItem="DJd-Wh-i6V" firstAttribute="top" secondItem="HUH-ld-2oT" secondAttribute="bottom" constant="8" id="oO4-YM-HQ9"/>
+                            <constraint firstItem="HUH-ld-2oT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uDr-Uh-Bin"/>
+                            <constraint firstItem="96o-P5-wot" firstAttribute="top" secondItem="DJd-Wh-i6V" secondAttribute="bottom" id="xS9-hg-arR"/>
+                            <constraint firstItem="DJd-Wh-i6V" firstAttribute="leading" secondItem="HUH-ld-2oT" secondAttribute="leading" id="z65-qH-gL9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoView" destination="96o-P5-wot" id="hhT-V5-HM7"/>
+                        <outlet property="playPauseButton" destination="HUH-ld-2oT" id="24N-EF-d5m"/>
+                        <outlet property="timeLabel" destination="QtT-jD-lNC" id="akT-jC-Rdh"/>
+                        <outlet property="titleLabel" destination="DJd-Wh-i6V" id="adW-Qq-ZSC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="132.88043478260872"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="default-logo" width="512" height="512"/>
+    </resources>
+</document>
